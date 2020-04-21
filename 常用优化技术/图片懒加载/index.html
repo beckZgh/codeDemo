@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="imgList">
+        <img data-src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2916523834,2825617909&fm=26&gp=0.jpg" alt="">
+        <img data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587294168936&di=8f7fe79525ea0866cf80b40f8d37fe81&imgtype=0&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2155983538%2C3860699715%26fm%3D214%26gp%3D0.jpg" alt="">
+        <img data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587294050707&di=63633fce59f55556ca907ffed6530c98&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Fe%2F59a3857464d17.jpg%3Fdown" alt="">
+        <img data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587294050707&di=d35b62be38114d55d64c0f99f7bfb036&imgtype=0&src=http%3A%2F%2Fcdn.duitang.com%2Fuploads%2Fitem%2F201402%2F20%2F20140220220726_YvyRR.jpeg" alt="">
+        <img data-src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3468343303,1740006892&fm=26&gp=0.jpg" alt="">
+    </div>
+    <script>
+        // 原理: 一张图片就是一个<img>标签，浏览器是否发起请求图片是根据<img>的src属性
+        // 现懒加载的关键就是：
+        // 在图片没有进入可视区域时，先不给 < img > 的src赋值，这样浏览器就不会发送请求了，
+        // 等到图片进入可视区域再给src赋值
+
+        window.onload = function() {
+
+            const $imsgList = document.getElementById('imgList');
+            const imgList = $imsgList.getElementsByTagName('img');
+
+            laodImg(imgList);
+
+            window.onscroll  = function() {
+                laodImg(imgList);
+            }
+
+        }
+
+        function laodImg(imgList) {
+            const viewH   = window.innerHeight;
+            const scrollH = document.documentElement.scrollTop || document.body.scrollTop;//获取滚动的值
+
+             [...imgList].forEach(img => {
+                if (img.offsetTop - scrollH < viewH) {
+                    img.src = img.getAttribute('data-src');
+                }
+            })
+        }
+
+        // function laodImg(imgList) {
+        //     const viewH = window.innerHeight;
+
+        //     [...imgList].forEach(img => {
+        //         const bound = img.getBoundingClientRect();
+
+        //         if (bound.top <= viewH) {
+        //             img.src = img.getAttribute('data-src');
+        //         }
+        //     })
+        // }
+    </script>
+</body>
+</html>
