@@ -4,6 +4,8 @@ node_modules
 
 /source
 
+egg-demo/beck-msg-flash/
+
 /tests/e2e/videos/
 /tests/e2e/screenshots/
 
