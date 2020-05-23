@@ -1,12 +1,14 @@
-'use strict';
-
-const Controller = require('egg').Controller;
+'use strict'
 
 class HomeController extends Controller {
   async index() {
-    const { ctx } = this;
-    ctx.body = 'hi, egg';
+    console.log(global.use)
+
+    const r = use('app.schemas.singup')
+
+    this.ctx.type = 'json'
+    this.ctx.body = JSON.stringify(r)
   }
 }
 
-module.exports = HomeController;
+module.exports = HomeController

@@ -1,9 +1,9 @@
-'use strict';
-
+'use strict'
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Users', [{
+    return queryInterface.bulkInsert('Users', [
+      {
         email: '2223969110@qq.com',
         password: '1324234',
         inviter_id: 0,
@@ -15,10 +15,11 @@ module.exports = {
         avatar: 'xxx.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-    }]);
+      },
+    ])
   },
 
   down: (queryInterface, Sequelize) => {
-      return queryInterface.bulkDelete('Users');
-  }
-};
+    return queryInterface.bulkDelete('Users')
+  },
+}

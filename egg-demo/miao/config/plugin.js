@@ -1,11 +1,16 @@
-'use strict';
+'use strict'
 
-/** @type Egg.EggPlugin */
-module.exports = {
-  // had enabled by egg
-  // static: {
-  //   enable: true,
-  // }
+exports.sequelize = {
   enable: true,
-  package: 'egg-sequelize'
-};
+  package: 'egg-sequelize',
+}
+
+exports.flash = {
+  enable: true,
+  package: 'beck-msg-flash',
+}
+
+exports.validator = {
+  enable: true,
+  package: 'egg-y-validator',
+}

@@ -1,3 +1,22 @@
 {
-  "extends": "eslint-config-egg"
+  "extends": "eslint-config-egg",
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": ["off"],
+    "space-before-function-parent": "off",
+    "array-bracket-spacing": "off",
+    "no-unused-vars": "off",
+    "semi": "off",
+    "comma-dangle": "off",
+    "arrow-parens": "off",
+    "space-before-function-paren": "off"
+  },
+  "globals": {
+    "use": true,
+    "Controller": true,
+    "C": true,
+    "check": true
+  }
 }
