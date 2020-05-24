@@ -1,0 +1,9 @@
+
+# 使用管理员打开 cmd | powerSehll 命令窗口
+
+# cd 到该目录下执行 'npm instal -g' , 会在全局安装一个 sumdoo-cli 命令可使用
+
+# 'npm install' 安装 依赖库
+
+# 执行 'sumdoo-cli' 会提示输入文件名，克隆的仓库默认下载至里面 （默认下载到当前目录）
+
